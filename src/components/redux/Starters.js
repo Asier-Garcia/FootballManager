@@ -1,10 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import {removePlayer} from './player/playerAcions'
+import field from '../../field.svg'
 
 function Starters(props) {
     return (
-        <div>
+        <section>
             <h2>Starters</h2>
             <div className = "field">
                 {
@@ -19,7 +20,8 @@ function Starters(props) {
                     ))
                 }
             </div>
-        </div>
+            <img src={field} alt= "Football field" />
+        </section>
     );
 }
 

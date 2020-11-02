@@ -8,22 +8,22 @@ const iniState = {
     {
         id:2, 
         name: "Raúl González Blanco", 
-        pic: ""
+        pic: "https://aws.revistavanityfair.es/prod/designs/v1/assets/785x589/174907.jpg"
     }, 
     {
         id:3, 
         name: "Cristiano (EL BIIIICHO) Ronaldo", 
-        pic: ""
+        pic: "https://estaticos.sport.es/resources/jpg/8/1/1589383879718.jpg"
     }, 
     {
         id: 4, 
         name: "Lionel Messirve", 
-        pic: ""
+        pic: "https://pbs.twimg.com/profile_images/1291372653866033157/3PlDuuak.jpg"
     }, 
     {
         id: 5, 
         name: "Érika García González", 
-        pic: ""
+        pic: "https://pbs.twimg.com/media/Eg2r-HvXkAIoAeH.jpg"
     }], 
     starters: [], 
     substitutes: []
@@ -45,10 +45,11 @@ export const reducerCoach = (state = iniState, action) => {
                 players: state.players.filter(p => p.id !== action.player.id)
             }
         case 'REMOVE_PLAYER':
-            
             return {
                 ...state, 
-
+                starters: state.starters.filter(p => p.id !== action.player.id), 
+                substitutes: state.substitutes.filter(p => p.id !== action.player.id), 
+                players: state.players.concat(action.player), 
             }
         default: return state
     }
